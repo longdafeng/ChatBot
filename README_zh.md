@@ -90,7 +90,7 @@ RAG 的主要优势有：
 
 注意：如果您正在参加 OceanBase AI 动手实战营，您可以跳过以下步骤 1 ~ 4。所有所需的软件都已经在机器上准备好了。:)
 
-1. 安装 [Python 3.9+](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installation/)。如果您的机器上 Python 版本较低，可以使用 Miniconda 来创建新的 Python 3.9 及以上的环境，具体可参考 [Miniconda 安装指南](https://docs.anaconda.com/miniconda/install/)。
+1. 安装 [Python 3.11+](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installation/)。如果您的机器上 Python 版本较低，可以使用 Miniconda 来创建新的 Python 3.11 及以上的环境，具体可参考 [Miniconda 安装指南](https://docs.anaconda.com/miniconda/install/)。
 
 2. 安装 [Poetry](https://python-poetry.org/docs/)，可参考命令 `python3 -m pip install poetry`
 
