@@ -17,7 +17,7 @@
 
 ### 交互流程
 
-![RAG 流程](./demo/rag-flow.png)
+![RAG 流程](./images/rag-flow.png)
 
 1. 用户在 Web 界面中输入想要咨询的问题并发送给机器人
 2. 机器人将用户提出的问题使用文本嵌入模型转换为向量
@@ -43,7 +43,7 @@
 
 例如使用嵌入模型将“苹果”、“香蕉”和“橘子”分别转换为 4 维的向量，它们的向量表示可能如下图所示，需要注意的是我们为了方便表示，将向量的维度降低到了 4 维，实际上文本嵌入产生的向量维数通常是几百或者几千维，例如我们使用的通义千问 text-embedding-v3 产生的向量维度是 1024 维。
 
-![Embedding Example](./demo/embedding-example.png)
+![Embedding Example](./images/embedding-example.png)
 
 ### 什么是向量检索?
 
@@ -59,7 +59,7 @@ OceanBase 在关系型数据库模型基础上将“向量”作为一种数据�
 
 如果我们在已经嵌入“苹果”、“香蕉”和“橘子”的 OceanBase 数据库中使用“红富士”作为查询文本，那么我们可能会得到如下的结果，其中“苹果”和“红富士”之间的相似度最高。（假设我们使用余弦相似度作为相似度度量）
 
-![Vector Search Example](./demo/vector-search-example.png)
+![Vector Search Example](./images/vector-search-example.png)
 
 ### 什么是 RAG?
 
@@ -102,13 +102,13 @@ RAG 的主要优势有：
 
 6. 注册[阿里云百炼](https://bailian.console.aliyun.com/)账号，开通模型服务并获取 API Key
 
-![点击开通模型服务](./demo/activate-models.png)
+![点击开通模型服务](./images/activate-models.png)
 
-![确认开通模型服务](./demo/confirm-to-activate-models.png)
+![确认开通模型服务](./images/confirm-to-activate-models.png)
 
-![阿里云百炼](./demo/dashboard.png)
+![阿里云百炼](./images/dashboard.png)
 
-![获取阿里云百炼 API Key](./demo/get-api-key.png)
+![获取阿里云百炼 API Key](./images/get-api-key.png)
 
 ## 构建聊天机器人
 
@@ -129,13 +129,13 @@ RAG 的主要优势有：
 
 进入实例详情页的“实例工作台”，点击“连接”-“获取连接串”按钮来获取数据库连接串，将其中的连接信息填入后续步骤中创建的 .env 文件内。
 
-![获取数据库连接串](./demo/obcloud-get-connection.png)
+![获取数据库连接串](./images/obcloud-get-connection.png)
 
 ##### 修改参数启用向量模块
 
 进入实例详情页的“参数管理”，将 `ob_vector_memory_limit_percentage` 参数修改为 30 以启动向量模块。
 
-![修改参数以启用向量功能](./demo/obcloud-modify-param.png)
+![修改参数以启用向量功能](./images/obcloud-modify-param.png)
 
 #### 1.2 使用 Docker 启动单机版 OceanBase 数据库
 
@@ -406,7 +406,7 @@ poetry run streamlit run --server.runOnSave false src/frontend/chat_ui.py
   External URL: http://xxx.xxx.xxx.xxx:8501 # 这是您可以从浏览器访问的 URL
 ```
 
-![Chat UI](./demo/chatbot-ui.png)
+![Chat UI](./images/chatbot-ui.png)
 
 ## FAQ
 
