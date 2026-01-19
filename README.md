@@ -17,7 +17,7 @@ The chatbot consists of the following components:
 
 ### Interaction Flow
 
-![RAG Flow](./demo/rag-flow.png)
+![RAG Flow](./images/rag-flow.png)
 
 1. User inputs a question in the Web interface and sends it to the chatbot
 2. The chatbot converts the user's question into a vector using a text embedding model
@@ -43,7 +43,7 @@ In this project, we use Tongyi Qianwen's text embedding model to generate vector
 
 For example, when using an embedding model to convert "apple", "banana", and "orange" into 4-dimensional vectors, their vector representations might look like the diagram below. Note that we reduced the vector dimensions to 4 for easier visualization - in practice, text embedding vectors usually have hundreds or thousands of dimensions. For instance, the text-embedding-v3 model we use from Tongyi Qianwen produces 1024-dimensional vectors.
 
-![Embedding Example](./demo/embedding-example.png)
+![Embedding Example](./images/embedding-example.png)
 
 ### What is Vector Retrieval?
 
@@ -59,7 +59,7 @@ OceanBase has added excellent support for "vector" as a data type in its relatio
 
 If we use "Fuji" as a query text in an OceanBase database that already has embeddings for "apple", "banana", and "orange", we might get results like the diagram below, where the similarity between "apple" and "Fuji" is highest. (Assuming we use cosine similarity as the similarity measure)
 
-![Vector Search Example](./demo/vector-search-example.png)
+![Vector Search Example](./images/vector-search-example.png)
 
 ### What is RAG?
 
@@ -102,13 +102,13 @@ Notes: If you are participating in the OceanBase AI Workshop, you can skip steps
 
 6. Register an [Alibaba Cloud Bailian](https://bailian.console.aliyun.com/) account, activate model service and obtain API Key
 
-![Activate Model Service](./demo/activate-models.png)
+![Activate Model Service](./images/activate-models.png)
 
-![Confirm to Activate Model Service](./demo/confirm-to-activate-models.png)
+![Confirm to Activate Model Service](./images/confirm-to-activate-models.png)
 
-![Alibaba Cloud Bailian](./demo/dashboard.png)
+![Alibaba Cloud Bailian](./images/dashboard.png)
 
-![Get Alibaba Cloud Bailian API Key](./demo/get-api-key.png)
+![Get Alibaba Cloud Bailian API Key](./images/get-api-key.png)
 
 ## Building the Chatbot
 
@@ -129,13 +129,13 @@ Visit the [OB Cloud Database 365-Day Free Trial](https://www.oceanbase.com/free-
 
 Go to the "Instance Workbench" on the instance details page, click the "Connect"-"Get Connection String" button to obtain the database connection information. Fill the connection information into the .env file that will be created in subsequent steps.
 
-![Get Database Connection Information](./demo/obcloud-get-connection.png)
+![Get Database Connection Information](./images/obcloud-get-connection.png)
 
 ##### Modify Parameters to Enable Vector Module
 
 Go to "Parameter Management" on the instance details page, and set the `ob_vector_memory_limit_percentage` parameter to 30 to enable the vector module.
 
-![Modify Parameters to Enable Vector Module](./demo/obcloud-modify-param.png)
+![Modify Parameters to Enable Vector Module](./images/obcloud-modify-param.png)
 
 #### 1.2 Deploy an OceanBase Database with Docker
 
@@ -406,7 +406,7 @@ Visit the URL displayed in the terminal to open the chatbot application UI.
   External URL: http://xxx.xxx.xxx.xxx:8501 # This is the URL you can access from your browser
 ```
 
-![Chat UI](./demo/chatbot-ui.png)
+![Chat UI](./images/chatbot-ui.png)
 
 ## FAQ
 
