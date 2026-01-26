@@ -112,6 +112,24 @@ RAG 的主要优势有：
 
 ## 构建聊天机器人
 
+### Docker 快速启动（推荐）
+
+如果您想使用 Docker 快速部署聊天机器人，请参见 [Docker 部署指南](./docker/README.md)。
+
+```bash
+# 1. 配置环境变量
+cd docker
+cp .env.example .env
+vim .env  # 设置您的 API_KEY
+
+# 2. 使用 Docker Compose 启动
+docker compose up -d
+
+# 3. 访问 http://localhost:8501
+```
+
+### 手动部署
+
 ### 1. 获取 OceanBase 数据库
 
 我们首先要获取 OceanBase 4.3.5 版本及以上的数据库来存储我们的向量数据。您可以通过以下两种方式获取 OceanBase 数据库：

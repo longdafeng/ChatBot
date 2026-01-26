@@ -112,6 +112,24 @@ Notes: If you are participating in the OceanBase AI Workshop, you can skip steps
 
 ## Building the Chatbot
 
+### Quick Start with Docker (Recommended)
+
+If you want to quickly deploy the chatbot using Docker, see [Docker Deployment Guide](./docker/README.md).
+
+```bash
+# 1. Configure environment
+cd docker
+cp .env.example .env
+vim .env  # Set your API_KEY
+
+# 2. Start with Docker Compose
+docker compose up -d
+
+# 3. Access at http://localhost:8501
+```
+
+### Manual Setup
+
 ### 1. Get an OceanBase Database
 
 First, we need to obtain an OceanBase database version 4.3.5 or above to store our vector data. You can get an OceanBase database through either of these two methods:
