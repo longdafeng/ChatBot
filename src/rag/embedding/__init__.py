@@ -5,13 +5,13 @@ from src.common.config import (
 )
 
 from .base import get_embedding
-from .bge import BGEEmbedding
+from .local_model import LocalModelEmbedding
 from .ollama import create_ollama_embedding
 from .openai import create_openai_embedding
 
 # Export all classes and functions
 __all__ = [
-    "BGEEmbedding",
+    "LocalModelEmbedding",
     "create_openai_embedding",
     "create_ollama_embedding",
     "get_embedding"
