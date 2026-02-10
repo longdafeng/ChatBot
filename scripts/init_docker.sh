@@ -80,7 +80,7 @@ elif [ "${DB_STORE}" = "oceanbase" ]; then
     else
         echo "Downloading latest oceanbase-ce docker image..."
         export OB_TENANT_PASSWORD=${DB_PASSWORD}
-        sudo docker run -p 2881:2881 --name "${docker_name}" -e OB_TENANT_PASSWORD=${DB_PASSWORD} -e datafile_size=10G -d oceanbase/oceanbase-ce
+        sudo docker run -p 2881:2881 --name "${docker_name}" -e OB_TENANT_PASSWORD=${DB_PASSWORD} -e datafile_size=10G -d oceanbase/oceanbase-ce:4.4.1.0-100010012025120515
     fi
 else
     echo "Warning: Unknown DB_STORE value: ${DB_STORE}. Skipping docker image download."
