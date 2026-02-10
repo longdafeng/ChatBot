@@ -10,7 +10,6 @@ Provides:
 """
 import re
 import sys
-import warnings
 from dataclasses import dataclass
 from typing import Optional
 
@@ -351,83 +350,6 @@ def create_pyseekdb_client(params: Optional[ConnectionParams] = None):  # type: 
         f"port={params.port}, db_name={params.db_name}"
     )
     return client
-
-
-# Default values for deprecated vector memory parameters
-_DEFAULT_VECTOR_MEMORY_LIMIT_PERCENTAGE = 30
-_DEFAULT_QUERY_TIMEOUT = 100000000
-
-
-def ensure_vector_memory_params(
-    client,  # pyseekdb.Client - type ignored due to library typing issues
-    memory_limit_percentage: int = _DEFAULT_VECTOR_MEMORY_LIMIT_PERCENTAGE,
-    query_timeout: int = _DEFAULT_QUERY_TIMEOUT,
-) -> None:
-    """
-    Ensure vector memory parameters are properly configured.
-
-    .. deprecated::
-        This function is deprecated and will be removed in a future version.
-        Database parameters should be configured at the infrastructure level,
-        not in application code.
-
-    Checks and sets the ob_vector_memory_limit_percentage parameter if needed,
-    and sets the ob_query_timeout for the session.
-
-    Args:
-        client: pyseekdb client instance
-        memory_limit_percentage: Target value for ob_vector_memory_limit_percentage
-        query_timeout: Query timeout in microseconds
-
-    Raises:
-        RuntimeError: If parameter check or setting fails
-    """
-    warnings.warn(
-        "ensure_vector_memory_params is deprecated and will be removed in a future version. "
-        "Database parameters should be configured at the infrastructure level.",
-        DeprecationWarning,
-        stacklevel=2,
-    )
-
-    logger.info("Checking and setting database parameters")
-
-    # Check ob_vector_memory_limit_percentage
-    vals = []
-    params = client.execute(
-        "SHOW PARAMETERS LIKE '%ob_vector_memory_limit_percentage%'"
-    )
-    for row in params:
-        val = int(row[6])
-        vals.append(val)
-
-    if len(vals) == 0:
-        logger.error("ob_vector_memory_limit_percentage not found in parameters.")
-        raise RuntimeError("ob_vector_memory_limit_percentage not found in parameters.")
-
-    # Set ob_vector_memory_limit_percentage if any value is 0
-    if any(val == 0 for val in vals):
-        try:
-            logger.info(
-                f"Setting ob_vector_memory_limit_percentage to {memory_limit_percentage}"
-            )
-            client.execute(
-                f"ALTER SYSTEM SET ob_vector_memory_limit_percentage = {memory_limit_percentage}"
-            )
-            logger.info(
-                f"Successfully set ob_vector_memory_limit_percentage to {memory_limit_percentage}"
-            )
-        except Exception as e:
-            logger.error(
-                f"Failed to set ob_vector_memory_limit_percentage to {memory_limit_percentage}: {e}"
-            )
-            raise RuntimeError(
-                f"Failed to set ob_vector_memory_limit_percentage: {e}"
-            ) from e
-
-    # Set query timeout
-    logger.info(f"Setting ob_query_timeout to {query_timeout}")
-    client.execute(f"SET ob_query_timeout={query_timeout}")
-    logger.debug("Database parameters configured successfully")
 
 
 # =============================================================================
