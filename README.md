@@ -112,9 +112,7 @@ Notes: If you are participating in the OceanBase AI Workshop, you can skip steps
 
 ## Building the Chatbot
 
-### Quick Start with Docker (Recommended)
-
-If you want to quickly deploy the chatbot using Docker, see [Docker Deployment Guide](./docker/README.md).
+### Quick Start (Recommended)
 
 ```bash
 # 1. Configure environment
